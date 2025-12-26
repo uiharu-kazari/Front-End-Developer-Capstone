@@ -1,12 +1,17 @@
 {
-  "name": "",
+  "name": "little-lemon",
+  "version": "1.0.0",
+  "description": "Little Lemon Restaurant - Table booking web application",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@react-router/node": "7.10.1",
@@ -19,12 +24,28 @@
   "devDependencies": {
     "@react-router/dev": "7.10.1",
     "@tailwindcss/vite": "^4.1.13",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "jsdom": "^27.4.0",
+    "react-router-dom": "^7.11.0",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
-    "vite-tsconfig-paths": "^5.1.4"
-  }
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.16"
+  },
+  "keywords": [
+    "restaurant",
+    "booking",
+    "react",
+    "little-lemon",
+    "mediterranean"
+  ],
+  "author": "Little Lemon",
+  "license": "MIT"
 }

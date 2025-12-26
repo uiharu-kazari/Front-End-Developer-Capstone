@@ -10,6 +10,9 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+/**
+ * Links function for preconnecting to font services
+ */
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -19,20 +22,37 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&family=Markazi+Text:wght@400;500;700&display=swap",
   },
 ];
 
+/**
+ * Root layout component with proper HTML structure
+ * Includes semantic markup and accessibility features
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* SEO Meta Tags */}
+        <meta name="author" content="Little Lemon Restaurant" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#495E57" />
+        {/* Open Graph Protocol */}
+        <meta property="og:site_name" content="Little Lemon" />
+        <meta property="og:locale" content="en_US" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
         <Meta />
         <Links />
       </head>
       <body>
+        {/* Skip link for accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -41,10 +61,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * Root App component - renders the outlet for child routes
+ */
 export default function App() {
   return <Outlet />;
 }
 
+/**
+ * Error boundary for handling errors gracefully
+ */
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
@@ -62,14 +88,19 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
+    <main className="error-page" role="main" aria-labelledby="error-title">
+      <div className="error-container">
+        <h1 id="error-title" className="error-title">{message}</h1>
+        <p className="error-details">{details}</p>
+        {stack && (
+          <pre className="error-stack">
+            <code>{stack}</code>
+          </pre>
+        )}
+        <a href="/" className="btn btn-primary">
+          Return to Home
+        </a>
+      </div>
     </main>
   );
 }
