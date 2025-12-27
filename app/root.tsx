@@ -36,15 +36,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Default Title - will be overridden by route meta */}
+        <title>Little Lemon - Mediterranean Restaurant</title>
         {/* SEO Meta Tags */}
+        <meta name="description" content="Little Lemon is a family-owned Mediterranean restaurant in Chicago, offering traditional recipes with a modern twist." />
+        <meta name="keywords" content="Mediterranean restaurant, Chicago, Little Lemon, Greek food, Italian food, reservations, fine dining" />
         <meta name="author" content="Little Lemon Restaurant" />
         <meta name="robots" content="index, follow" />
         <meta name="theme-color" content="#495E57" />
-        {/* Open Graph Protocol */}
+        {/* Open Graph Protocol Tags */}
+        <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Little Lemon" />
         <meta property="og:locale" content="en_US" />
-        {/* Twitter Card */}
+        <meta property="og:title" content="Little Lemon - Mediterranean Restaurant in Chicago" />
+        <meta property="og:description" content="Family-owned Mediterranean restaurant serving traditional recipes with a modern twist." />
+        <meta property="og:image" content="https://littlelemon.com/og-image.jpg" />
+        <meta property="og:url" content="https://littlelemon.com" />
+        {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@littlelemon" />
+        <meta name="twitter:title" content="Little Lemon - Mediterranean Restaurant" />
+        <meta name="twitter:description" content="Family-owned Mediterranean restaurant serving traditional recipes with a modern twist." />
+        <meta name="twitter:image" content="https://littlelemon.com/og-image.jpg" />
         <Meta />
         <Links />
       </head>
